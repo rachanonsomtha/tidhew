@@ -11,7 +11,7 @@ import RegisterScreen from '../screens/RegisterScreen'
 //screens;
 import Landing from '../screens/LandingScreen';
 
-const HomeNavigator = () => {
+const AuthNavigator = () => {
     const HomeStack = createStackNavigator();
 
     return (
@@ -23,4 +23,4 @@ const HomeNavigator = () => {
     )
 }
 
-export default HomeNavigator
+export default AuthNavigator

@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { LOGIN, REGISTER } from '../../constants/routeNames'
 import StyledButton from '../common/StyledButton'
-
+import Container from '../common/Container'
 const Landing = () => {
     const { navigate } = useNavigation()
     return (
@@ -42,16 +42,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        paddingHorizontal: 20,
     },
     loremText: {
         paddingHorizontal: 20,
-        justifyContent: 'center',
-        alignItems: 'center'
+        paddingVertical: 200
     },
     buttonContainer: {
-        position: 'absolute',
-        bottom: 50,
         width: '100%'
     }
 })

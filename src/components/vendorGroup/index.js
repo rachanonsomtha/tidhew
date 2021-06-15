@@ -1,0 +1,35 @@
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import colors from '../../assets/theme/colors'
+import VendorCard from './vendorCard'
+const VendorGroup = () => {
+    return (
+        <View>
+            <View style={styles.vendorGroupContainer} >
+                <Text style={styles.title}>ร้านที่น่าสนใจ</Text>
+                <Text style={styles.viewmore}>ดูเพิ่มเติม</Text>
+            </View>
+            <VendorCard />
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    vendorGroupContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 20,
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'normal',
+    },
+    viewmore: {
+        fontSize: 13,
+        fontWeight: 'normal',
+        color: colors.yellow,
+    }
+})
+
+export default VendorGroup
