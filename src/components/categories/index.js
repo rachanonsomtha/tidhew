@@ -7,7 +7,7 @@ const Categories = (props) => {
     return (
         <View>
             <Text style={styles.cardTitle}>{title}</Text>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.categoriesContainer}>
                 <ScrollView
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}>
@@ -59,10 +59,14 @@ const Categories = (props) => {
 }
 
 const styles = StyleSheet.create({
+    categoriesContainer: {
+        flexDirection: 'row',
+    },
     cardTitle: {
         fontSize: 18,
         fontWeight: "normal",
         padding: 20,
+        fontFamily: 'Kanit'
     },
     card: {
         flexDirection: 'column',
@@ -79,7 +83,8 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         fontSize: 12,
         width: 60,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Kanit'
     }
 })
 

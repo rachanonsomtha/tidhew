@@ -19,16 +19,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 20,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     title: {
         fontSize: 18,
         fontWeight: 'normal',
+        fontFamily: 'Kanit'
     },
     viewmore: {
         fontSize: 13,
         fontWeight: 'normal',
         color: colors.yellow,
+        fontFamily: 'Kanit'
     }
 })
 

@@ -10,9 +10,9 @@ const VendorCard = () => {
                 <View style={styles.circleAvatar}>
                 </View>
                 <View style={{ paddingLeft: 8 }}>
-                    <Text>ร้านที่น่าสนใจ</Text>
+                    <Text style={styles.vendorInfo}>ร้านที่น่าสนใจ</Text>
                     <View>
-                        <Text>(124 rating Thai food, spicy)</Text>
+                        <Text style={styles.vendorInfo}>(124 rating Thai food, spicy)</Text>
                     </View>
                 </View>
             </View>
@@ -22,6 +22,9 @@ const VendorCard = () => {
 }
 
 const styles = StyleSheet.create({
+    vendorInfo: {
+        fontFamily: 'Kanit'
+    },
     detailContainer: {
         flexDirection: 'row',
         paddingTop: 15,
