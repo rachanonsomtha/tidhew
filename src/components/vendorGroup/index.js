@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import colors from '../../assets/theme/colors'
 import VendorCard from './vendorCard'
 const VendorGroup = () => {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     viewmore: {
         fontSize: 13,
         fontWeight: 'normal',
-        color: colors.yellow,
+        color: colors.lightOrange,
         fontFamily: 'Kanit'
     }
 })
