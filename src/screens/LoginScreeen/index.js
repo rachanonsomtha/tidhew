@@ -11,7 +11,7 @@ import { useForm, Controller } from 'react-hook-form';
 const LoginScreen = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(true)
-    const navigation= useNavigation();
+    const navigation = useNavigation();
 
     const triggerPasswordHidden = () => {
         setIsShowPassword(!isShowPassword)
@@ -22,15 +22,12 @@ const LoginScreen = () => {
             password: ""
         }
     });
+
     const onSubmit = data => {
+        //login here
         console.log(data);
     };
 
-    // const onChange = arg => {
-    //     return {
-    //         value: arg.nativeEvent.text,
-    //     };
-    // };
     return (
         <Container>
             <Text style={styles.title}>Welcome to Tidhew</Text>
@@ -62,9 +59,10 @@ const LoginScreen = () => {
                             onBlur={onBlur}
                             value={value}
                             icon={
-                                <TouchableOpacity onPress={triggerPasswordHidden}>
-                                    <Text>{isShowPassword ? "Show" : "Hide"}</Text>
-                                </TouchableOpacity>
+                                value ?
+                                    <TouchableOpacity onPress={triggerPasswordHidden}>
+                                        <Text>{isShowPassword ? "Show" : "Hide"}</Text>
+                                    </TouchableOpacity> : <></>
                             }
                             iconPosition="right"
                             placeholder="Enter Password"

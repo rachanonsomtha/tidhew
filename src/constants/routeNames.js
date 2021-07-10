@@ -1,5 +1,5 @@
-export const LOGIN = "login"
-export const REGISTER = "register"
-export const LANDING = "landing"
+export const LOGIN = "LOGIN"
+export const REGISTER = "REGISTER"
+export const LANDING = "LANDING"
 export const HOME = "HOME"
 export const VENDORDETAIL = "VENDOR DETAIL"
