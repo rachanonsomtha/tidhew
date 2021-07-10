@@ -16,7 +16,7 @@ const CustomButton = ({ title,
             return colors.grey
         }
         if (primary) {
-            return colors.primary
+            return colors.lightOrange
         }
         if (secondary) {
             return colors.secondary

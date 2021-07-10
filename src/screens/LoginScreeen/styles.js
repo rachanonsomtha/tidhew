@@ -11,27 +11,31 @@ export default StyleSheet.create({
     title: {
         fontSize: 21,
         textAlign: 'center',
-        paddingTop: 20,
         fontWeight: "500",
+        fontFamily: 'Kanit'
     },
     subTitle: {
         fontSize: 17,
         textAlign: 'center',
         paddingTop: 20,
         fontWeight: "500",
+        fontFamily: 'Kanit'
     },
     form: {
         paddingTop: 20,
     },
     createSection: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 10,
     },
     infoText: {
         fontSize: 17,
+        fontFamily: 'Kanit'
     },
     linkBtn: {
         paddingLeft: 17,
-        color: colors.primary,
+        color: colors.lightOrange,
         fontSize: 16,
+        fontFamily: 'Kanit'
     }
 })

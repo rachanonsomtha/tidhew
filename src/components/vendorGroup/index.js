@@ -10,6 +10,8 @@ const VendorGroup = () => {
                 <Text style={styles.viewmore}>ดูเพิ่มเติม</Text>
             </View>
             <VendorCard />
+            <VendorCard />
+            <VendorCard />
         </View>
     )
 }

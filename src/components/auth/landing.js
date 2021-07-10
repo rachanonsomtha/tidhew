@@ -10,11 +10,9 @@ const Landing = () => {
         <View style={styles.container}>
             <View style={{ paddingTop: 50 }}>
                 <Image
-                    source={{
-                        uri:
-                            'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png',
-                    }}
-                    //borderRadius will help to make Round Shape
+                    source={
+                        require('../../assets/image/logo.png')
+                    }
                     style={styles.logoImage}
                 />
             </View>

@@ -40,17 +40,21 @@ export default StyleSheet.create({
         fontFamily: 'Kanit',
     },
     header__detail: {
-       width: '50%'
+        width: '50%'
     },
     header__detailText: {
         flexShrink: 1,
         fontSize: 14,
         fontFamily: 'Kanit'
     },
-    details:{
+    details: {
         flex: 0,
         marginTop: 10,
         backgroundColor: colors.lightGray,
         padding: 10
-    }
+    },
+    foodList: {
+        flexDirection: 'column',
+        padding: 10
+    },
 })

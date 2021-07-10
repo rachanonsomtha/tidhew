@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     vendorCardContainer: {
+        marginBottom: 10,
         flexDirection: 'column'
     },
     imageContainer: {

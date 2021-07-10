@@ -1,47 +1,88 @@
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/core';
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Button } from 'react-native'
 import Input from '../../components/common/Input'
 import Container from '../../components/common/Container';
 import { REGISTER } from '../../constants/routeNames';
 import styles from './styles';
 import CustomButton from '../../components/common/CustomButton';
+import { useForm, Controller } from 'react-hook-form';
 
 const LoginScreen = () => {
 
-    const { navigate } = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [isShowPassword, setIsShowPassword] = useState(true)
+    const navigation= useNavigation();
+
+    const triggerPasswordHidden = () => {
+        setIsShowPassword(!isShowPassword)
+    }
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            username: "",
+            password: ""
+        }
+    });
+    const onSubmit = data => {
+        console.log(data);
+    };
+
+    // const onChange = arg => {
+    //     return {
+    //         value: arg.nativeEvent.text,
+    //     };
+    // };
     return (
         <Container>
             <Text style={styles.title}>Welcome to Tidhew</Text>
             <Text style={styles.subTitle}>Please login here</Text>
             <View>
-                <Input
-                    label="Username"
-                    onChangeText={(text) => setUsername(text)}
-                    value={username}
-                    iconPosition="right"
-                    placeholder="Enter Username"
+                <Controller
+                    control={control}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <Input
+                            label="Username"
+                            onChangeText={value => onChange(value)}
+                            onBlur={onBlur}
+                            value={value}
+                            iconPosition="right"
+                            placeholder="Enter Username"
+                            error={errors.username?.type === 'required' && "Username is required"}
+                        />
+                    )}
+                    name="username"
+                    rules={{ required: true }}
                 />
-                <Input
-                    label="Password"
-                    secureTextEntry={true}
-                    onChangeText={(text) => setPassword(text)}
-                    value={password}
-                    icon={<Text>Show</Text>}
-                    iconPosition="right"
-                    placeholder="Enter Password"
+                <Controller
+                    control={control}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <Input
+                            label="Password"
+                            secureTextEntry={isShowPassword}
+                            onChangeText={value => onChange(value)}
+                            onBlur={onBlur}
+                            value={value}
+                            icon={
+                                <TouchableOpacity onPress={triggerPasswordHidden}>
+                                    <Text>{isShowPassword ? "Show" : "Hide"}</Text>
+                                </TouchableOpacity>
+                            }
+                            iconPosition="right"
+                            placeholder="Enter Password"
+                            error={errors.password?.type === 'required' && "Password is required"}
+                        />
+                    )}
+                    name="password"
+                    rules={{ required: true }}
                 />
-                <CustomButton title="Submit" primary ></CustomButton>
+                <CustomButton title="Submit" onPress={handleSubmit(onSubmit)} primary></CustomButton>
                 <View style={styles.createSection}>
                     <Text style={styles.infoText}>Already have account ?</Text>
-                    <TouchableOpacity onPress={() => navigate(REGISTER)}>
+                    <TouchableOpacity onPress={() => navigation.replace(REGISTER)}>
                         <Text style={styles.linkBtn}>Create account</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-        </Container>
+        </Container >
     )
 }
 

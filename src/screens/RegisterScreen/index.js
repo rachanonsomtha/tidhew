@@ -6,6 +6,8 @@ import Container from '../../components/common/Container'
 import CustomButton from '../../components/common/CustomButton'
 import { useNavigation } from '@react-navigation/core'
 import { LOGIN } from '../../constants/routeNames'
+import { auth } from '../../config/firebase'
+
 const RegisterScreen = (
     { onSubmit,
         onChange,
@@ -16,7 +18,12 @@ const RegisterScreen = (
     }
 ) => {
 
-    const { navigate } = useNavigation()
+    const navigation = useNavigation()
+
+    // const signUp = (e) => {
+    //     e.preventDefault();
+    //     console.log()
+    // }
     return (
         <Container>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -78,7 +85,7 @@ const RegisterScreen = (
                         />
                         <View style={styles.createSection}>
                             <Text style={styles.infoText}>Already have account ?</Text>
-                            <TouchableOpacity onPress={() => navigate(LOGIN)}>
+                            <TouchableOpacity onPress={() => navigation.replace(LOGIN)}>
                                 <Text style={styles.linkBtn}>Login</Text>
                             </TouchableOpacity>
                         </View>

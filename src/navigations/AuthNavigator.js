@@ -12,11 +12,15 @@ import RegisterScreen from '../screens/RegisterScreen'
 import Landing from '../screens/LandingScreen';
 
 const AuthNavigator = () => {
-    const HomeStack = createStackNavigator();
+    const HomeStack = createStackNavigator(
+
+    );
 
     return (
-        <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-            <HomeStack.Screen name={LANDING} component={Landing}></HomeStack.Screen>
+        <HomeStack.Navigator screenOptions={{
+            headerBackTitleVisible: false
+        }}>
+            <HomeStack.Screen name={LANDING} options={{ headerShown: false }} component={Landing}></HomeStack.Screen>
             <HomeStack.Screen name={REGISTER} component={RegisterScreen}></HomeStack.Screen>
             <HomeStack.Screen name={LOGIN} component={LoginScreen}></HomeStack.Screen>
         </HomeStack.Navigator>
