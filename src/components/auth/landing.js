@@ -11,7 +11,7 @@ const Landing = () => {
             <View style={{ paddingTop: 50 }}>
                 <Image
                     source={
-                        require('../../assets/image/logo.png')
+                        require('../../assets/image/icon.png')
                     }
                     style={styles.logoImage}
                 />

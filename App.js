@@ -3,6 +3,8 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AppNavContainer from './src/navigations';
 import { useFonts } from 'expo-font';
+import { store } from './src/features/store';
+import { Provider } from 'react-redux';
 
 export default function App() {
 
@@ -10,15 +12,17 @@ export default function App() {
     Kanit: require('./assets/fonts/Kanit-Regular.ttf'),
     Kanitmedium: require('./assets/fonts/Kanit-Medium.ttf')
   })
-  
-  if (!loaded){
+
+  if (!loaded) {
     return null
   }
   // const Stack = createStackNavigator();
   return (
-    <SafeAreaView style={styles.container}>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
         <AppNavContainer />
-    </SafeAreaView>
+      </SafeAreaView>
+    </Provider>
   );
 }
 

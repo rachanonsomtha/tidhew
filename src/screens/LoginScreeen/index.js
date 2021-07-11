@@ -7,25 +7,38 @@ import { REGISTER } from '../../constants/routeNames';
 import styles from './styles';
 import CustomButton from '../../components/common/CustomButton';
 import { useForm, Controller } from 'react-hook-form';
+import { auth } from '../../config/firebase'
+import { useDispatch } from 'react-redux';
+import { login, logout } from '../../features/userSlice';
+
 
 const LoginScreen = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(true)
     const navigation = useNavigation();
+    const dispatch = useDispatch();
+
 
     const triggerPasswordHidden = () => {
         setIsShowPassword(!isShowPassword)
     }
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { control, handleSubmit, formState: { errors }, watch } = useForm({
         defaultValues: {
             username: "",
             password: ""
         }
     });
 
-    const onSubmit = data => {
+    const onSubmit = () => {
         //login here
-        console.log(data);
+        let username = watch("username")
+        let password = watch("password")
+        auth.signInWithEmailAndPassword(username, password).then((userAuth) => {
+            dispatch(login({
+                email: userAuth.email,
+                uid: userAuth.uid,
+            }))
+        }).catch((error) => alert(error))
     };
 
     return (

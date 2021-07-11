@@ -3,6 +3,9 @@ import { color } from "react-native-reanimated"
 import colors from "../../assets/theme/colors"
 
 export default StyleSheet.create({
+    FlexGrowOne: {
+        flexGrow : 1
+    },
     logoImage: {
         height: 150,
         width: 150,
