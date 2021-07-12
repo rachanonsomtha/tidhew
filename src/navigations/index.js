@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeNavigator from "./HomeNavigator";
 import AuthNavigator from "./AuthNavigator";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ const AppNavContainer = () => {
 
     const user = useSelector(selectUser);
     const dispatch = useDispatch()
-
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         auth.onAuthStateChanged((userAuth) => {
             if (userAuth) {
@@ -24,11 +24,20 @@ const AppNavContainer = () => {
                 // user logged out
                 dispatch(logout())
             }
+            setIsLoading(false)
         })
     }, [])
     return (
+
         <NavigationContainer>
-            {user ? <HomeNavigator /> : <AuthNavigator />}
+            {isLoading ?
+                (
+                    <></>
+                ) : (
+                    user ? <HomeNavigator /> : <AuthNavigator />
+                )
+            }
+
         </NavigationContainer>
     )
 }

@@ -8,12 +8,14 @@ import { VENDORDETAIL } from '../../constants/routeNames'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { DrawerContent } from '../../components/drawer'
 import { useDispatch } from 'react-redux'
+import colors from '../../assets/theme/colors'
 const Drawer = createDrawerNavigator();
 
 function HomeScreenComponent() {
     return (
         <View style={{ height: '100%' }}>
             <ScrollView>
+                <View style={{ height: 250, backgroundColor: colors.grey }}></View>
                 <Categories title={"ประเภทที่มีทั้งหมด"} />
                 <Categories title={"ร้านที่แนะนำ (SPONSER)"} />
                 <VendorGroup />

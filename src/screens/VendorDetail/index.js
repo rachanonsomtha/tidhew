@@ -70,8 +70,8 @@ function VendorDetail() {
                         <View style={{ borderRadius: 5, width: 70, backgroundColor: 'white', height: 25, }}></View>
                     </View>
                 </View>
-                <View style={{ borderRadius: 5, width: '80%', backgroundColor: 'white', height: 40, justifyContent: 'center', alignItems: 'center'  }}>
-                    <Text style={{ fontSize: 10, fontFamily: 'Kanit', fontWeight: 'bold', paddingRight: 10}}>แชทกับร้านค้า</Text>
+                <View style={{ borderRadius: 5, width: '80%', backgroundColor: 'white', height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 10, fontFamily: 'Kanit', fontWeight: 'bold', paddingRight: 10 }}>แชทกับร้านค้า</Text>
 
                 </View>
             </View>

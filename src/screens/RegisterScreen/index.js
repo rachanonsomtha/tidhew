@@ -11,7 +11,7 @@ import { auth } from '../../config/firebase'
 import colors from '../../assets/theme/colors'
 
 import { useDispatch } from 'react-redux'
-import { userSlice } from '../../features/userSlice'
+import { userSlice, selectUser } from '../../features/userSlice'
 
 const RegisterScreen = () => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AppNavContainer from './src/navigations';
 import { useFonts } from 'expo-font';
@@ -19,9 +19,9 @@ export default function App() {
   // const Stack = createStackNavigator();
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <AppNavContainer />
-      </SafeAreaView>
+      </View>
     </Provider>
   );
 }

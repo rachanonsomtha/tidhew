@@ -15,6 +15,7 @@ import { login, logout } from '../../features/userSlice';
 const LoginScreen = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
@@ -29,16 +30,21 @@ const LoginScreen = () => {
         }
     });
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         //login here
         let username = watch("username")
         let password = watch("password")
-        auth.signInWithEmailAndPassword(username, password).then((userAuth) => {
+        setIsLoading(true)
+        await auth.signInWithEmailAndPassword(username, password).then((userAuth) => {
             dispatch(login({
                 email: userAuth.email,
                 uid: userAuth.uid,
             }))
-        }).catch((error) => alert(error))
+            setIsLoading(false)
+        }).catch((error) => {
+            alert(error)
+            setIsLoading(false)
+        })
     };
 
     return (
@@ -85,7 +91,7 @@ const LoginScreen = () => {
                     name="password"
                     rules={{ required: true }}
                 />
-                <CustomButton title="Submit" onPress={handleSubmit(onSubmit)} primary></CustomButton>
+                <CustomButton title="Submit" isLoading={isLoading} disabled={isLoading} onPress={handleSubmit(onSubmit)} primary></CustomButton>
                 <View style={styles.createSection}>
                     <Text style={styles.infoText}>Already have account ?</Text>
                     <TouchableOpacity onPress={() => navigation.replace(REGISTER)}>

@@ -12,9 +12,7 @@ import RegisterScreen from '../screens/RegisterScreen'
 import Landing from '../screens/LandingScreen';
 
 const AuthNavigator = () => {
-    const HomeStack = createStackNavigator(
-
-    );
+    const HomeStack = createStackNavigator();
 
     return (
         <HomeStack.Navigator screenOptions={{
